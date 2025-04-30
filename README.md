@@ -8,7 +8,7 @@ The information provided hereby IT Glue is for general informational purposes on
 
 Under no circumstances shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the information provided here. Your use of this information is solely at your own risk.
 
-# Microsoft_Integration_App
+# Microsoft_Integration_App:
 
 Automate the creation of App Registration and Service Principal with PowerShell
 
