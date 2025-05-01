@@ -183,7 +183,7 @@ Write-Host "Propagating changes!" -ForegroundColor Yellow
 Start-Sleep -Seconds 30 #Buffer time to create the app
 
 try{
-
+    Connect-Graph
     Update-MgApplication -ApplicationId $obj_id -RequiredResourceAccess $RequiredResourceAccess.params
 
 }
@@ -199,6 +199,8 @@ catch{
 $URL = "https://login.microsoftonline.com/$((Get-AzureADTenantDetail).ObjectId)/adminconsent?client_id=$($app.AppId)"
 
 Write-Host "Please log in as your tenant admin to accept the permission to Grant Admin consent for the API permissions (Note: No need to login into IT Glue or ignore the error in IT Glue)" -ForegroundColor Cyan
+
+Start-Sleep -Seconds 20 #Buffer time to add a permission
 
 Start-Process $URL
 
