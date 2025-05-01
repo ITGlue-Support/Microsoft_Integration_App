@@ -1,7 +1,7 @@
 ############################################################################################################################
 ########## Install Modules
 ############################################################################################################################
-$modules = @("AzureAD", "Microsoft.Graph.Groups")
+$modules = @("AzureAD", "Microsoft.Graph.Groups", "Microsoft.Graph.Applications")
 
 foreach ($module in $modules) {
     if (-not (Get-InstalledModule -Name $module -ErrorAction SilentlyContinue)) {
@@ -189,7 +189,7 @@ try{
 }
 catch{
     
-    Wirte-Host "Unable to add the Microsoft Graph API permission: $_.Exception.Message"
+    Write-Host "Unable to add the Microsoft Graph API permission: $_.Exception.Message"
 }
 
 ############################################################################################################################
