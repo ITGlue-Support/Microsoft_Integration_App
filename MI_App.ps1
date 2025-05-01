@@ -30,9 +30,9 @@ Connect-AzureAD
 ########## Defining App Registration Details
 ############################################################################################################################
  
-$appName = 'IT Glue Integration Omkar new' # Update the name as per your naming convention
+$appName = 'IT Glue Integration' # Update the name as per your naming convention
  
-$redirectUri = Read-Host "Enter you redirect URI link (https://yoursudomain.itglue.com/microsofts)"
+$redirectUri = Read-Host "Enter your redirect URI link (https://yoursudomain.itglue.com/microsofts)"
  
 $signInAudience = 'AzureADandPersonalMicrosoftAccount'
  
@@ -127,12 +127,12 @@ try{
 }
 catch{
 
-    Write-Host "Issues feteching $pemissions" -ForegroundColor Red
+    Write-Host "Issues fetching $pemissions" -ForegroundColor Red
 
 }
 
 ############################################################################################################################
-######### Application API permissions
+######### # Application API permissions
 ############################################################################################################################
 try{
 
@@ -156,12 +156,12 @@ try{
 }
 catch{
 
-    Write-Host "Issues feteching $pemissions" -ForegroundColor Red
+    Write-Host "Issues fetching $pemissions" -ForegroundColor Red
 
 }
 
 ############################################################################################################################
-######### Delcaring APi pemrissions
+######### Declaring APi permissions
 ############################################################################################################################
 
 $RequiredRA = @{
@@ -178,7 +178,7 @@ $RequiredResourceAccess = @{
   params = @($RequiredRA,$MPC)
 }
 
-Write-Host "Propogating changes!" -ForegroundColor Yellow
+Write-Host "Propagating changes!" -ForegroundColor Yellow
 
 Start-Sleep -Seconds 30 #Buffer time to create the app
 
@@ -198,7 +198,7 @@ catch{
 
 $URL = "https://login.microsoftonline.com/$((Get-AzureADTenantDetail).ObjectId)/adminconsent?client_id=$($app.AppId)"
 
-Write-Host "Please login as your tenant admin to accept the permission to Grant Admin consent for the API permissions (Note: No need to login into IT Glue or ignore the error in IT Glue)" -ForegroundColor Cyan
+Write-Host "Please log in as your tenant admin to accept the permission to Grant Admin consent for the API permissions (Note: No need to login into IT Glue or ignore the error in IT Glue)" -ForegroundColor Cyan
 
 Start-Process $URL
 
@@ -216,7 +216,7 @@ try{
     $GDAP_Grp = New-MgGroup -DisplayName 'GDAP-ITG' -MailEnabled:$False  -MailNickName 'GDAP-ITG' -SecurityEnabled
 }
 catch{
- Write-Host "Having issues create a security group - Needs to be created manually"
+ Write-Host "Having issues creating a security group - Needs to be created manually"
 }
 
                        #################################################################
@@ -247,4 +247,4 @@ Write-Host "Tenant ID: $((Get-AzureADTenantDetail).ObjectId)" -ForegroundColor G
 Write-Host "Application ID: $($app.AppId)" -ForegroundColor Green
 Write-Host "Secret Key: $($PCreds.SecretText)" -ForegroundColor Green
 
-Write-Host "You still need to create a Service Account User and add Relationship for all the Customer Tenant: https://help.itglue.kaseya.com/help/Content/1-admin/microsoft/microsoft-gdap.html?Highlight=Microsoft%20integration%20GDAP"
+Write-Host "You still need to create a Service Account User and add a relationship for all the Customer Tenants: https://help.itglue.kaseya.com/help/Content/1-admin/microsoft/microsoft-gdap.html?Highlight=Microsoft%20integration%20GDAP"
