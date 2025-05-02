@@ -183,7 +183,7 @@ Write-Host "Propagating changes!" -ForegroundColor Yellow
 Start-Sleep -Seconds 30 #Buffer time to create the app
 
 try{
-    Connect-Graph
+    Connect-MgGraph
     Update-MgApplication -ApplicationId $obj_id -RequiredResourceAccess $RequiredResourceAccess.params
 
 }
