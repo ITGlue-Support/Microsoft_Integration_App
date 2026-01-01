@@ -27,3 +27,20 @@ At the end, you will receive all the details that can be inserted into your IT G
 3. If you wish to **enable Password Rotation and Bitlocker**, you will need to add additional API permissions listed and follow the steps in the respective article below:
    a. [Password Rotation](https://help.itglue.kaseya.com/help/Content/1-admin/microsoft/microsoft-entra-id-password-rotation.htm?Highlight=Microsoft%20integration%20GDAP)
    b. [BitLocker](https://help.itglue.kaseya.com/help/Content/2-using/documentation-guide/BitLocker_Keys.html?Highlight=Bitlocker)
+
+# Bulk Add GDAP relationship
+
+Bulk add GDAP relationship script will allow you bulk GDAP relationship with the Entra Role below:
+
+# Privileged Role Administrator
+# Cloud Application Administrator
+# Global Reader
+# Intune Administrator
+# Insights Business Leader
+# Reports Reader
+
+Workflow:
+
+1. Script will export the list of the Customer from Partner into a CSV.
+2. Alter list and then upload the file to add the relationship.
+3. Once you have approved the relationship you can add the security group.
